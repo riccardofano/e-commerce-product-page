@@ -11,20 +11,17 @@ function Main() {
           These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole,
           they’ll withstand everything the weather can offer.
         </p>
-        <div className="flex flex-sb">
-          <div className="flex">
-            <p className="text-neutral-800 fw-bold">$125.00</p>
+        <div className="flex flex-v-center flex-sb">
+          <div className="flow-h | flex flex-v-center">
+            <p className="text-neutral-800 fw-bold fs-lg">$125.00</p>
             <span className="text-primary-400 bg-primary-200">50%</span>
           </div>
           <p className="text-neutral-400 text-strike fs-sm">$250.00</p>
         </div>
         <div className="grid">
-          <div className="flex flex-sb bg-neutral-300">
-            <button>-</button>
-            <p>0</p>
-            <button>+</button>
+          <div className="flex flex-v-center flex-sb bg-neutral-300">
           </div>
-          <button className="flex">
+          <button className="button | flex flex-center" data-type="primary">
             <img src="images/icon-cart.svg" alt="" />
             <p>Add to cart</p>
           </button>
