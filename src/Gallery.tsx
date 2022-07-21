@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useViewport } from "./hooks/useViewport";
 
 interface Product {
   text: string;
@@ -33,14 +34,28 @@ function Gallery() {
   const [imageIndex, setImageIndex] = useState(0);
   const currentImage = products[imageIndex];
 
+  const { isDesktop } = useViewport();
+
+  const Thumbnails = (
+    <div>
+      {products.map((p, i) => (
+        <img key={i} src={`images/${p.thumbnail}`} alt={p.text} onClick={() => setImageIndex(i)} />
+      ))}
+    </div>
+  );
+
   return (
     <section>
-      <img src={`images/${currentImage.fullSize}`} alt={currentImage.text} />
       <div>
-        {products.map((p, i) => (
-          <img key={i} src={`images/${p.thumbnail}`} alt={p.text} onClick={() => setImageIndex(i)} />
-        ))}
+        <img src={`images/${currentImage.fullSize}`} alt={currentImage.text} />
+        {!isDesktop && (
+          <div>
+            <button>left</button>
+            <button>right</button>
+          </div>
+        )}
       </div>
+      {isDesktop && Thumbnails}
     </section>
   );
 }
