@@ -2,7 +2,7 @@ import Nav from "./Nav";
 
 function Header() {
   return (
-    <header>
+    <header className="container flex flex-center">
       <img src="images/logo.svg" alt="Sneakers logo" />
       <Nav />
       <div>
