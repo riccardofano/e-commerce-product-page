@@ -15,11 +15,13 @@
   --c-neutral-900: hsl(0, 0%, 0%, 75%);
 
   --fs-400: 16px;
+  --fs-500: 1.5rem;
   --fs-800: 2rem;
   --fs-900: 2.5rem;
 
   --fs-body: var(--fs-400);
-  --fs-heading: var(--fs-800);
+  --fs-lg: var(--fs-500);
+  --fs-xl: var(--fs-800);
 
   --ff-primary: "Kumbh Sans", sans-serif;
   --ff-body: var(--ff-primary);
@@ -28,7 +30,7 @@
   --fw-bold: 700;
 
   @include for-desktop {
-    --fs-heading: var(--fs-900);
+    --fs-xl: var(--fs-900);
   }
 }
 
@@ -36,6 +38,73 @@ body {
   font-family: var(--ff-body);
   font-size: var(--fs-body);
   font-weight: var(--fw-regular);
-  color: var(--c-neutral-800);
+  color: var(--c-neutral-700);
   background-color: var(--c-neutral-100);
+}
+
+/* Utility classes */
+
+.bg-primary-200 {
+  background-color: var(--c-primary-200);
+}
+.bg-primary-400 {
+  background-color: var(--c-primary-400);
+}
+.bg-neutral-400 {
+  background-color: var(--c-neutral-400);
+}
+
+.text-primary-400 {
+  color: var(--c-primary-400);
+}
+.text-neutral-400 {
+  color: var(--c-neutral-400);
+}
+.text-neutral-700 {
+  color: var(--c-neutral-700);
+}
+.text-neutral-800 {
+  color: var(--c-neutral-800);
+}
+
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+.fs-md {
+  font-size: var(--fs-body);
+}
+.fs-lg {
+  font-size: var(--fs-lg);
+}
+.fs-xl {
+  font-size: var(--fs-xl);
+}
+
+.lh-sm {
+  line-height: 1.2;
+}
+.lh-md {
+  line-height: 1.5;
+}
+
+.radius-sm {
+  border-radius: 3px;
+}
+.radius-md {
+  border-radius: 5px;
+}
+.radius-lg {
+  border-radius: 10px;
+}
+
+.container {
+  --max-width: 1110px;
+  --padding: 1.5rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
 }
