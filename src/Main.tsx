@@ -1,15 +1,9 @@
+import Gallery from "./Gallery";
+
 function Main() {
   return (
     <main>
-      <section>
-        <img src="images/image-product-1.jpg" alt="Product 1" />
-        <div>
-          <img src="images/image-product-1-thumbnail.jpg" alt="Product 1 thumbnail" />
-          <img src="images/image-product-2-thumbnail.jpg" alt="Product 2 thumbnail" />
-          <img src="images/image-product-3-thumbnail.jpg" alt="Product 3 thumbnail" />
-          <img src="images/image-product-4-thumbnail.jpg" alt="Product 4 thumbnail" />
-        </div>
-      </section>
+      <Gallery />
       <article>
         <p>Sneaker company</p>
         <h1>Fall Limited Edition Sneakers</h1>
