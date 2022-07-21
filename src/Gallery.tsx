@@ -37,7 +37,7 @@ function Gallery() {
   const { isDesktop } = useViewport();
 
   const Thumbnails = (
-    <div>
+    <div className="thumbnails | flex">
       {products.map((p, i) => (
         <img key={i} src={`images/${p.thumbnail}`} alt={p.text} onClick={() => setImageIndex(i)} />
       ))}
@@ -45,8 +45,8 @@ function Gallery() {
   );
 
   return (
-    <section>
-      <div>
+    <section className="flow">
+      <div className="full-size">
         <img src={`images/${currentImage.fullSize}`} alt={currentImage.text} />
         {!isDesktop && (
           <div>

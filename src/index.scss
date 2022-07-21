@@ -18,8 +18,8 @@
   --fs-300: 0.9rem;
   --fs-400: 16px;
   --fs-500: 1.25rem;
-  --fs-800: 1.5rem;
-  --fs-900: 2.5rem;
+  --fs-800: 1.75rem;
+  --fs-900: 3rem;
 
   --fs-xs: var(--fs-200);
   --fs-sm: var(--fs-300);
@@ -131,6 +131,18 @@ body {
   gap: var(--gap, 1rem);
 }
 
+.even-columns {
+  @include for-desktop {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+.uneven-columns {
+  @include for-desktop {
+    grid-template-columns: 0.4fr 0.6fr;
+  }
+}
+
 .flex {
   display: flex;
 }
@@ -152,9 +164,21 @@ body {
 
 .flow > * + * {
   margin-top: var(--margin, 1rem);
+
+  @include for-desktop {
+    --margin: 2rem;
+  }
 }
 .flow-h > * + * {
   margin-left: var(--margin, 1rem);
+}
+
+.mg-sm {
+  --margin: 0.5rem;
+
+  @include for-desktop {
+    --margin: 0.8rem;
+  }
 }
 
 /* Block classes */
@@ -174,4 +198,40 @@ body {
 }
 .button[data-type="inverted"] {
   color: var(--c-primary-400);
+}
+
+.price {
+  @include for-desktop {
+    flex-wrap: wrap;
+
+    > :first-child {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.pill {
+  border-radius: 5px;
+  padding: 0.1em 0.4em;
+}
+
+.full-size {
+  @include for-desktop {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+}
+
+.thumbnails {
+  width: 100%;
+  gap: 1rem;
+}
+.thumbnails > * {
+  border-radius: 10px;
+}
+.thumbnails img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
 }
