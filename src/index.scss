@@ -147,3 +147,31 @@ body {
 .flex-sb {
   justify-content: space-between;
 }
+
+/* Composition classes */
+
+.flow > * + * {
+  margin-top: var(--margin, 1rem);
+}
+.flow-h > * + * {
+  margin-left: var(--margin, 1rem);
+}
+
+/* Block classes */
+
+.button {
+  border: none;
+  border-radius: 10px;
+  background-color: transparent;
+  padding: 1rem 1.5rem;
+}
+.button[data-type="primary"] {
+  background-color: var(--c-primary-400);
+  color: var(--c-neutral-100);
+  path {
+    fill: var(--c-neutral-100);
+  }
+}
+.button[data-type="inverted"] {
+  color: var(--c-primary-400);
+}

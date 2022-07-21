@@ -1,10 +1,14 @@
 import Gallery from "./Gallery";
 
+import { ReactComponent as IconCart } from "/images/icon-cart.svg";
+import { ReactComponent as IconMinus } from "/images/icon-minus.svg";
+import { ReactComponent as IconPlus } from "/images/icon-plus.svg";
+
 function Main() {
   return (
     <main>
       <Gallery />
-      <article className="container">
+      <article className="flow | container">
         <p className="text-primary-400 text-uppercase fw-bold fs-xs">Sneaker company</p>
         <h1 className="text-neutral-800 fw-bold fs-xl">Fall Limited Edition Sneakers</h1>
         <p className="fs-sm">
@@ -20,9 +24,16 @@ function Main() {
         </div>
         <div className="grid">
           <div className="flex flex-v-center flex-sb bg-neutral-300">
+            <button className="button">
+              <IconMinus />
+            </button>
+            <p className="text-neutral-800 fw-bold">0</p>
+            <button className="button">
+              <IconPlus />
+            </button>
           </div>
           <button className="button | flex flex-center" data-type="primary">
-            <img src="images/icon-cart.svg" alt="" />
+            <IconCart />
             <p>Add to cart</p>
           </button>
         </div>
