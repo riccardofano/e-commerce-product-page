@@ -1,4 +1,6 @@
 @forward "/scss/reset";
+@use "/scss/mixins" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
 :root {
@@ -25,5 +27,8 @@
   --fw-regular: 400;
   --fw-bold: 700;
 
+  @include for-desktop {
+    --fs-heading: var(--fs-900);
+  }
 }
 
