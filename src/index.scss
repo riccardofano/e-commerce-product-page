@@ -32,3 +32,10 @@
   }
 }
 
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  color: var(--c-neutral-800);
+  background-color: var(--c-neutral-100);
+}
