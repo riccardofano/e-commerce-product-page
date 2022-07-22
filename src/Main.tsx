@@ -1,3 +1,5 @@
+import { useContext, useState } from "react";
+import ShopContext from "./context/shopContext";
 import Gallery from "./Gallery";
 import { useViewport } from "./hooks/useViewport";
 
@@ -7,23 +9,23 @@ import { ReactComponent as IconPlus } from "/images/icon-plus.svg";
 
 function Main() {
   const { isDesktop } = useViewport();
+  const { products } = useContext(ShopContext);
+  const currentProduct = products[0];
 
+  const { brand, name, description, price, oldPrice, discount, images } = currentProduct;
   return (
     <main className={`main | grid even-columns ${isDesktop ? "container" : ""}`}>
       <Gallery />
       <article className={`flow ${!isDesktop ? "container" : ""}`}>
-        <p className="text-primary-400 text-uppercase fw-bold fs-xs">Sneaker company</p>
-        <h1 className="mg-sm text-neutral-800 fw-bold fs-xl">Fall Limited Edition Sneakers</h1>
-        <p className="fs-sm">
-          These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole,
-          they’ll withstand everything the weather can offer.
-        </p>
+        <p className="text-primary-400 text-uppercase fw-bold fs-xs">{brand}</p>
+        <h1 className="mg-sm text-neutral-800 fw-bold fs-xl">{name}</h1>
+        <p className="fs-sm">{description}</p>
         <div className="price | flex flex-v-center flex-sb fw-bold">
           <div className="flow-h | flex flex-v-center">
-            <p className="text-neutral-800 fs-lg">$125.00</p>
-            <span className="pill | text-primary-400 bg-primary-200 fs-sm">50%</span>
+            <p className="text-neutral-800 fs-lg">${(price / 100).toFixed(2)}</p>
+            {discount && <span className="pill | text-primary-400 bg-primary-200 fs-sm">{discount}%</span>}
           </div>
-          <p className="text-neutral-400 text-strike fs-sm">$250.00</p>
+          {oldPrice && <p className="text-neutral-400 text-strike fs-sm">${(oldPrice / 100).toFixed(2)}</p>}
         </div>
         <div className="grid uneven-columns">
           <div className="flex flex-v-center flex-sb bg-neutral-300">
