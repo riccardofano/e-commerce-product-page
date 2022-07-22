@@ -24,6 +24,7 @@ dd {
 ul,
 ol {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
@@ -40,6 +41,7 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 /* A elements that don't have a class get default styles */
