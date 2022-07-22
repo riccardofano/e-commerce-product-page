@@ -9,10 +9,23 @@ import { ReactComponent as IconPlus } from "/images/icon-plus.svg";
 
 function Main() {
   const { isDesktop } = useViewport();
-  const { products } = useContext(ShopContext);
+  const { products, addToCart } = useContext(ShopContext);
   const currentProduct = products[0];
 
   const { brand, name, description, price, oldPrice, discount, images } = currentProduct;
+
+  const [amount, setAmount] = useState(0);
+  const increaseAmount = () => {
+    setAmount(amount + 1);
+  };
+  const descreaseAmount = () => {
+    setAmount(amount - 1 > 0 ? amount - 1 : 0);
+  };
+
+  const addProductToCart = () => {
+    addToCart(currentProduct, amount);
+  };
+
   return (
     <main className={`main | grid even-columns ${isDesktop ? "container" : ""}`}>
       <Gallery />
@@ -29,15 +42,15 @@ function Main() {
         </div>
         <div className="grid uneven-columns">
           <div className="flex flex-v-center flex-sb bg-neutral-300">
-            <button className="button">
+            <button className="button" onClick={descreaseAmount}>
               <IconMinus />
             </button>
-            <p className="text-neutral-800 fw-bold">0</p>
-            <button className="button">
+            <p className="text-neutral-800 fw-bold">{amount}</p>
+            <button className="button" onClick={increaseAmount}>
               <IconPlus />
             </button>
           </div>
-          <button className="button | flow-h | flex flex-center" data-type="primary">
+          <button className="button | flow-h | flex flex-center" data-type="primary" onClick={addProductToCart}>
             <IconCart />
             <p>Add to cart</p>
           </button>
