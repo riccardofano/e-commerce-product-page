@@ -9,9 +9,9 @@ function Main() {
   const { isDesktop } = useViewport();
 
   return (
-    <main className={`grid even-columns ${isDesktop && "container"}`}>
+    <main className={`main | grid even-columns ${isDesktop ? "container" : ""}`}>
       <Gallery />
-      <article className="flow | container">
+      <article className={`flow ${!isDesktop ? "container" : ""}`}>
         <p className="text-primary-400 text-uppercase fw-bold fs-xs">Sneaker company</p>
         <h1 className="mg-sm text-neutral-800 fw-bold fs-xl">Fall Limited Edition Sneakers</h1>
         <p className="fs-sm">
@@ -35,7 +35,7 @@ function Main() {
               <IconPlus />
             </button>
           </div>
-          <button className="button | flex flex-center" data-type="primary">
+          <button className="button | flow-h | flex flex-center" data-type="primary">
             <IconCart />
             <p>Add to cart</p>
           </button>
