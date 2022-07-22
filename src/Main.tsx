@@ -14,12 +14,12 @@ function Main() {
 
   const { brand, name, description, price, oldPrice, discount, images } = currentProduct;
 
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(1);
   const increaseAmount = () => {
     setAmount(amount + 1);
   };
   const descreaseAmount = () => {
-    setAmount(amount - 1 > 0 ? amount - 1 : 0);
+    setAmount(amount - 1 > 1 ? amount - 1 : 1);
   };
 
   const addProductToCart = () => {
@@ -52,7 +52,7 @@ function Main() {
           </div>
           <button className="button | flow-h | flex flex-center" data-type="primary" onClick={addProductToCart}>
             <IconCart />
-            <p>Add to cart</p>
+            <p className="fw-bold">Add to cart</p>
           </button>
         </div>
       </article>
