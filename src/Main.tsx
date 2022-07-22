@@ -28,7 +28,7 @@ function Main() {
 
   return (
     <main className={`main | grid even-columns ${isDesktop ? "container" : ""}`}>
-      <Gallery />
+      <Gallery images={images} />
       <article className={`flow ${!isDesktop ? "container" : ""}`}>
         <p className="text-primary-400 text-uppercase fw-bold fs-xs">{brand}</p>
         <h1 className="mg-sm text-neutral-800 fw-bold fs-xl">{name}</h1>

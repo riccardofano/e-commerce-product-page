@@ -1,47 +1,23 @@
 import { useState } from "react";
 import { useViewport } from "./hooks/useViewport";
+import { Image } from "./context/shopContext";
 
 import { ReactComponent as IconPrevious } from "../images/icon-previous.svg";
 import { ReactComponent as IconNext } from "../images/icon-next.svg";
 
-interface Product {
-  text: string;
-  fullSize: string;
-  thumbnail: string;
+interface GalleryProps {
+  images: Image[];
 }
 
-const products: Product[] = [
-  {
-    text: "Product 1",
-    fullSize: "image-product-1.jpg",
-    thumbnail: "image-product-1-thumbnail.jpg",
-  },
-  {
-    text: "Product 2",
-    fullSize: "image-product-2.jpg",
-    thumbnail: "image-product-2-thumbnail.jpg",
-  },
-  {
-    text: "Product 3",
-    fullSize: "image-product-3.jpg",
-    thumbnail: "image-product-3-thumbnail.jpg",
-  },
-  {
-    text: "Product 4",
-    fullSize: "image-product-4.jpg",
-    thumbnail: "image-product-4-thumbnail.jpg",
-  },
-];
-
-function Gallery() {
+function Gallery({ images }: GalleryProps) {
   const [imageIndex, setImageIndex] = useState(0);
-  const currentImage = products[imageIndex];
+  const currentImage = images[imageIndex];
 
   const { isDesktop } = useViewport();
 
   const Thumbnails = (
     <div className="thumbnails | flex">
-      {products.map((p, i) => (
+      {images.map((p, i) => (
         <div key={i} data-active={imageIndex === i} onClick={() => setImageIndex(i)}>
           <img src={`images/${p.thumbnail}`} alt={p.text} />
         </div>
@@ -50,11 +26,11 @@ function Gallery() {
   );
 
   const nextImage = () => {
-    setImageIndex((imageIndex + 1) % products.length);
+    setImageIndex((imageIndex + 1) % images.length);
   };
 
   const previousImage = () => {
-    const index = imageIndex - 1 < 0 ? products.length - 1 : imageIndex - 1;
+    const index = imageIndex - 1 < 0 ? images.length - 1 : imageIndex - 1;
     setImageIndex(index);
   };
 
