@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useViewport } from "./hooks/useViewport";
 
+import { ReactComponent as IconPrevious } from "../images/icon-previous.svg";
+import { ReactComponent as IconNext } from "../images/icon-next.svg";
+
 interface Product {
   text: string;
   fullSize: string;
@@ -39,7 +42,9 @@ function Gallery() {
   const Thumbnails = (
     <div className="thumbnails | flex">
       {products.map((p, i) => (
-        <img key={i} src={`images/${p.thumbnail}`} alt={p.text} onClick={() => setImageIndex(i)} />
+        <div key={i} data-active={imageIndex === i} onClick={() => setImageIndex(i)}>
+          <img src={`images/${p.thumbnail}`} alt={p.text} />
+        </div>
       ))}
     </div>
   );
@@ -50,8 +55,12 @@ function Gallery() {
         <img src={`images/${currentImage.fullSize}`} alt={currentImage.text} />
         {!isDesktop && (
           <div>
-            <button>left</button>
-            <button>right</button>
+            <button data-type="previous">
+              <IconPrevious />
+            </button>
+            <button data-type="next">
+              <IconNext />
+            </button>
           </div>
         )}
       </div>
