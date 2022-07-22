@@ -49,16 +49,25 @@ function Gallery() {
     </div>
   );
 
+  const nextImage = () => {
+    setImageIndex((imageIndex + 1) % products.length);
+  };
+
+  const previousImage = () => {
+    const index = imageIndex - 1 < 0 ? products.length - 1 : imageIndex - 1;
+    setImageIndex(index);
+  };
+
   return (
     <section className="flow">
       <div className="full-size">
         <img src={`images/${currentImage.fullSize}`} alt={currentImage.text} />
         {!isDesktop && (
           <div>
-            <button data-type="previous">
+            <button onClick={previousImage} data-type="previous">
               <IconPrevious />
             </button>
-            <button data-type="next">
+            <button onClick={nextImage} data-type="next">
               <IconNext />
             </button>
           </div>
