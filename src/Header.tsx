@@ -1,4 +1,5 @@
 import Nav from "./Nav";
+import Cart from "./Cart";
 
 function Header() {
   return (
@@ -8,7 +9,7 @@ function Header() {
         <Nav />
       </div>
       <div className="flow-h | flex flex-v-center max-100">
-        <img src="images/icon-cart.svg" alt="Shopping cart" />
+        <Cart />
         <div className="img-wrapper">
           <img src="images/image-avatar.png" alt="Profile avatar" />
         </div>
