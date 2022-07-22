@@ -1,5 +1,13 @@
+$breakpoint: 50em;
+
 @mixin for-desktop {
-  @media (min-width: 50em) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin for-mobile {
+  @media (max-width: $breakpoint) {
     @content;
   }
 }

@@ -159,6 +159,9 @@ body {
 .flex-sb {
   justify-content: space-between;
 }
+.flex-gap {
+  gap: var(--gap, 1rem);
+}
 
 /* Composition classes */
 
@@ -200,13 +203,124 @@ body {
   color: var(--c-primary-400);
 }
 
-.price {
-  @include for-desktop {
-    flex-wrap: wrap;
+/* Header */
 
-    > :first-child {
-      width: 100%;
-      margin-bottom: 0.5rem;
+.header {
+  --header-height: 4.5rem;
+  height: var(--header-height);
+
+  @include for-desktop {
+    --header-height: 7rem;
+    border-bottom: 2px solid var(--c-neutral-300);
+  }
+
+  > * {
+    height: 100%;
+  }
+}
+
+.img-wrapper {
+  width: auto;
+
+  img {
+    height: 1.5rem;
+    width: auto;
+    object-fit: scale-down;
+
+    @include for-desktop {
+      height: 3.125rem;
+    }
+  }
+}
+
+/* Navigation */
+
+.nav {
+  .overlay {
+    display: none;
+  }
+
+  --size: 2rem;
+
+  @include for-mobile {
+    order: -1;
+    margin-left: 0;
+    margin-right: 1rem;
+    width: var(--size);
+    height: var(--size);
+
+    button {
+      width: var(--size);
+      height: var(--size);
+      padding: 0;
+
+      position: absolute;
+      --offset: calc(var(--header-height) / 2);
+      left: var(--offset);
+      top: var(--offset);
+      z-index: 1000;
+
+      transform: translate(-50%, -50%);
+
+      img {
+        margin-left: auto;
+        margin-right: auto;
+        object-position: center;
+        object-fit: contain;
+      }
+    }
+
+    ul {
+      flex-direction: column;
+      padding: 5rem 2rem;
+      color: var(--c-neutral-800);
+      font-weight: var(--fw-bold);
+
+      position: fixed;
+      inset: 0;
+      right: 30%;
+      z-index: 999;
+
+      ~ .overlay {
+        display: block;
+        position: absolute;
+        inset: 0;
+        background-color: var(--c-neutral-900);
+        pointer-events: none;
+        z-index: 100;
+      }
+    }
+  }
+
+  @include for-desktop {
+    margin-left: 3.5rem;
+    --gap: 2rem;
+
+    &,
+    ul,
+    li,
+    a {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    li {
+      position: relative;
+    }
+
+    li:hover {
+      color: var(--c-neutral-800);
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 4px;
+        background-color: var(--c-primary-400);
+      }
     }
   }
 }

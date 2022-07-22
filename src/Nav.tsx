@@ -5,24 +5,46 @@ function Nav() {
   const { isDesktop } = useViewport();
   const [isOpen, setIsOpen] = useState(false);
 
-  return (
-    <nav>
-      {!isDesktop && (
-        <button onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? (
-            <img src="/images/icon-close.svg" alt="Close menu" />
-          ) : (
-            <img src="/images/icon-menu.svg" alt="Open menu" />
-          )}
-        </button>
+  const toggleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const NavigationToggleButton = () => (
+    <button className="button" onClick={toggleOpen}>
+      {isOpen ? (
+        <img src="/images/icon-close.svg" alt="Close navigation" />
+      ) : (
+        <img src="/images/icon-menu.svg" alt="Open navigation" />
       )}
-      <ul>
-        <li>Collections</li>
-        <li>Men</li>
-        <li>Women</li>
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
+    </button>
+  );
+
+  return (
+    <nav className="nav">
+      {!isDesktop && <NavigationToggleButton />}
+
+      {(isDesktop || isOpen) && (
+        <>
+          <ul className="flex flex-gap bg-neutral-100">
+            <li>
+              <a href="#">Collections</a>
+            </li>
+            <li>
+              <a href="">Men</a>
+            </li>
+            <li>
+              <a href="">Women</a>
+            </li>
+            <li>
+              <a href="">About</a>
+            </li>
+            <li>
+              <a href="">Contact</a>
+            </li>
+          </ul>
+          <div className="overlay"></div>
+        </>
+      )}
     </nav>
   );
 }
