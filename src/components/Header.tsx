@@ -10,11 +10,11 @@ function Header() {
       </div>
       <div className="flow-h | flex flex-v-center max-100">
         <Cart />
-        <div className="img-wrapper">
-          <a href="#">
+        <a href="#">
+          <div className="img-wrapper">
             <img src="/images/image-avatar.png" alt="Profile avatar" />
-          </a>
-        </div>
+          </div>
+        </a>
       </div>
     </header>
   );
