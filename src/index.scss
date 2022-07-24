@@ -244,8 +244,13 @@ body {
   }
 }
 
+/* Profile picture */
+
 .img-wrapper {
   width: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
 
   img {
     height: 1.5rem;
@@ -256,6 +261,10 @@ body {
       height: 3.125rem;
     }
   }
+}
+
+.img-wrapper:hover {
+  box-shadow: 0 0 0 2px var(--c-primary-400);
 }
 
 /* Navigation */
