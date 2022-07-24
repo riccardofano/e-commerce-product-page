@@ -4,9 +4,9 @@ import { createPortal } from "react-dom";
 
 import { Image } from "../context/shopContext";
 
-import { ReactComponent as IconClose } from "/images/icon-close.svg";
-import { ReactComponent as IconPrevious } from "/images/icon-previous.svg";
-import { ReactComponent as IconNext } from "/images/icon-next.svg";
+import { ReactComponent as IconClose } from "/public/images/icon-close.svg";
+import { ReactComponent as IconPrevious } from "/public/images/icon-previous.svg";
+import { ReactComponent as IconNext } from "/public/images/icon-next.svg";
 
 interface DialogProps {
   attr: A11yDialogConfig;
@@ -42,7 +42,7 @@ function Dialog({ attr, images, index }: DialogProps) {
         </button>
 
         <div className="dialog-full-size">
-          <img src={`/images/${currentImage.fullSize}`} alt={currentImage.text} />
+          <img src={`./images/${currentImage.fullSize}`} alt={currentImage.text} />
           <button className="img-navigation" data-type="previous" onClick={previousImage}>
             <IconPrevious />
           </button>
@@ -60,7 +60,7 @@ function Dialog({ attr, images, index }: DialogProps) {
               tabIndex={0}
               onClick={() => setDialogIndex(i)}
             >
-              <img src={`/images/${p.thumbnail}`} alt={p.text} />
+              <img src={`./images/${p.thumbnail}`} alt={p.text} />
             </button>
           ))}
         </div>

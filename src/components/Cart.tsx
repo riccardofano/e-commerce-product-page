@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import ShopContext from "../context/shopContext";
 
-import { ReactComponent as IconDelete } from "/images/icon-delete.svg";
-import { ReactComponent as IconCart } from "/images/icon-cart.svg";
+import { ReactComponent as IconDelete } from "/public/images/icon-delete.svg";
+import { ReactComponent as IconCart } from "/public/images/icon-cart.svg";
 
 function Cart() {
   const { cart, removeFromCart } = useContext(ShopContext);

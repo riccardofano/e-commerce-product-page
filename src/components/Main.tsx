@@ -3,9 +3,9 @@ import ShopContext from "../context/shopContext";
 import Gallery from "./Gallery";
 import { useViewport } from "../hooks/useViewport";
 
-import { ReactComponent as IconCart } from "/images/icon-cart.svg";
-import { ReactComponent as IconMinus } from "/images/icon-minus.svg";
-import { ReactComponent as IconPlus } from "/images/icon-plus.svg";
+import { ReactComponent as IconCart } from "/public/images/icon-cart.svg";
+import { ReactComponent as IconMinus } from "/public/images/icon-minus.svg";
+import { ReactComponent as IconPlus } from "/public/images/icon-plus.svg";
 
 function Main() {
   const { isDesktop } = useViewport();

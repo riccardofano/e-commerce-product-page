@@ -4,8 +4,8 @@ import { useA11yDialog } from "react-a11y-dialog";
 import { useViewport } from "../hooks/useViewport";
 import { Image } from "../context/shopContext";
 
-import { ReactComponent as IconPrevious } from "/images/icon-previous.svg";
-import { ReactComponent as IconNext } from "/images/icon-next.svg";
+import { ReactComponent as IconPrevious } from "/public/images/icon-previous.svg";
+import { ReactComponent as IconNext } from "/public/images/icon-next.svg";
 import Dialog from "./Dialog";
 
 interface GalleryProps {
