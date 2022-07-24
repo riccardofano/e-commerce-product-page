@@ -9,6 +9,9 @@ function Cart() {
   const [open, setOpen] = useState(false);
 
   const isEmpty = cart.length === 0;
+  const itemsInCart = cart.reduce((acc, product) => {
+    return acc + product.amount;
+  }, 0);
 
   const toggleOpen = () => {
     setOpen(!open);
@@ -19,7 +22,7 @@ function Cart() {
       {cart.map((product) => (
         <li key={product.id} className="flex flex-gap flex-v-center">
           <img src={`/images/${product.images[0].thumbnail}`} alt="" />
-          <div className="cart-info">
+          <div className="cart-info | fw-bold">
             <p className="cart-product-name">{product.name}</p>
             <p>
               ${(product.price / 100).toFixed(2)} x {product.amount}{" "}
@@ -36,8 +39,9 @@ function Cart() {
 
   return (
     <div className="cart">
-      <button className="button | flex flex-v-center" onClick={toggleOpen}>
-        <IconCart />
+      <button className="cart-button | button | flex flex-v-center" onClick={toggleOpen}>
+        {!isEmpty && <span className="cart-pill">{itemsInCart}</span>}
+        <IconCart className={`${open ? "active" : ""}`} />
       </button>
 
       {open && (

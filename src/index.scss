@@ -361,8 +361,24 @@ body {
 
 /* Shopping Cart */
 
-.cart button:hover path,
-.cart button:hover use {
+.cart-button {
+  position: relative;
+
+  .cart-pill {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: var(--c-primary-400);
+    color: var(--c-neutral-100);
+    font-size: 0.6rem;
+    padding: 0 0.45rem;
+    border-radius: 100vmax;
+  }
+}
+
+.cart-button:hover path,
+.cart-button:hover use,
+.cart-button .active path {
   fill: var(--c-neutral-800);
 }
 
