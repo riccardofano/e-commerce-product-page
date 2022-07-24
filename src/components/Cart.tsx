@@ -36,8 +36,8 @@ function Cart() {
 
   return (
     <div className="cart">
-      <button className="button | flex flex-v-center">
-        <IconCart onClick={toggleOpen} />
+      <button className="button | flex flex-v-center" onClick={toggleOpen}>
+        <IconCart />
       </button>
 
       {open && (
