@@ -30,6 +30,7 @@ function Cart() {
             </p>
           </div>
           <button className="cart-remove | button" onClick={() => removeFromCart(product.id)}>
+            <span className="visually-hidden">Remove one product</span>
             <IconDelete />
           </button>
         </li>

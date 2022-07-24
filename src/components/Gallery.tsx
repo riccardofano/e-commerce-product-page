@@ -53,9 +53,11 @@ function Gallery({ images }: GalleryProps) {
         {!isDesktop && (
           <div>
             <button className="img-navigation" data-type="previous" onClick={previousImage}>
+              <span className="visually-hidden">Previous image</span>
               <IconPrevious />
             </button>
             <button className="img-navigation" data-type="next" onClick={nextImage}>
+              <span className="visually-hidden">Next image</span>
               <IconNext />
             </button>
           </div>

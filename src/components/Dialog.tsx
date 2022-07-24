@@ -38,6 +38,7 @@ function Dialog({ attr, images, index }: DialogProps) {
 
       <div {...attr.dialog} className="dialog-content">
         <button {...attr.closeButton} className="dialog-close">
+          <span className="visually-hidden">Close dialog</span>
           <IconClose />
         </button>
 
@@ -48,9 +49,11 @@ function Dialog({ attr, images, index }: DialogProps) {
         <div className="dialog-full-size">
           <img src={`./images/${currentImage.fullSize}`} alt={currentImage.text} />
           <button className="img-navigation" data-type="previous" onClick={previousImage}>
+            <span className="visually-hidden">Previous image</span>
             <IconPrevious />
           </button>
           <button className="img-navigation" data-type="next" onClick={nextImage}>
+            <span className="visually-hidden">Next image</span>
             <IconNext />
           </button>
         </div>
