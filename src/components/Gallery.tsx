@@ -1,19 +1,29 @@
 import { useState } from "react";
+import { useA11yDialog } from "react-a11y-dialog";
+
 import { useViewport } from "../hooks/useViewport";
 import { Image } from "../context/shopContext";
 
 import { ReactComponent as IconPrevious } from "/images/icon-previous.svg";
 import { ReactComponent as IconNext } from "/images/icon-next.svg";
+import Dialog from "./Dialog";
 
 interface GalleryProps {
   images: Image[];
 }
 
 function Gallery({ images }: GalleryProps) {
+  const { isDesktop } = useViewport();
+
   const [imageIndex, setImageIndex] = useState(0);
   const currentImage = images[imageIndex];
 
-  const { isDesktop } = useViewport();
+  // a11y-dialog
+  const [instance, attr] = useA11yDialog({
+    id: "lightbox",
+    role: "dialog",
+    title: "Product lightbox",
+  });
 
   const Thumbnails = (
     <div className="thumbnails | flex">
@@ -30,14 +40,14 @@ function Gallery({ images }: GalleryProps) {
   };
 
   const previousImage = () => {
-    const index = imageIndex - 1 < 0 ? images.length - 1 : imageIndex - 1;
+    const index = (imageIndex - 1 + images.length) % images.length;
     setImageIndex(index);
   };
 
   return (
     <section className="flow">
       <div className="full-size">
-        <button className="open-dialog">
+        <button className="open-dialog" onClick={() => isDesktop && instance?.show()}>
           <img src={`/images/${currentImage.fullSize}`} alt={currentImage.text} />
         </button>
         {!isDesktop && (
@@ -52,6 +62,8 @@ function Gallery({ images }: GalleryProps) {
         )}
       </div>
       {isDesktop && Thumbnails}
+
+      <Dialog attr={attr} images={images} index={imageIndex} />
     </section>
   );
 }
