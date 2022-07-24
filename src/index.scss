@@ -20,7 +20,7 @@
   --fs-400: 16px;
   --fs-500: 1.25rem;
   --fs-800: 1.75rem;
-  --fs-900: 3rem;
+  --fs-900: 2.8rem;
 
   --fs-xs: var(--fs-200);
   --fs-sm: var(--fs-300);
@@ -36,6 +36,7 @@
 
   @include for-desktop {
     --fs-xl: var(--fs-900);
+    --fs-lg: var(--fs-800);
   }
 }
 
@@ -109,10 +110,23 @@ body {
 }
 
 .lh-sm {
-  line-height: 1.2;
+  line-height: 1;
 }
 .lh-md {
   line-height: 1.5;
+}
+.lh-lg {
+  line-height: 1.8;
+}
+
+.ls-xs {
+  letter-spacing: -0.02rem;
+}
+.ls-sm {
+  letter-spacing: 0.02rem;
+}
+.ls-lg {
+  letter-spacing: 0.1rem;
 }
 
 .radius-sm {
@@ -146,7 +160,7 @@ body {
 }
 .uneven-columns {
   @include for-desktop {
-    grid-template-columns: 0.4fr 0.6fr;
+    grid-template-columns: 0.37fr 0.63fr;
   }
 }
 
@@ -202,7 +216,7 @@ body {
   --margin: 0.5rem;
 
   @include for-desktop {
-    --margin: 0.8rem;
+    --margin: 1.25rem;
   }
 }
 
@@ -220,6 +234,10 @@ body {
     color: var(--c-neutral-100);
     path {
       fill: var(--c-neutral-100);
+    }
+
+    &[data-shadow="true"] {
+      box-shadow: 0 2rem 3rem -1rem var(--c-primary-400);
     }
   }
 
@@ -463,15 +481,24 @@ body {
 @include for-desktop {
   .main {
     gap: min(125px, 10vw - 1rem);
-    padding: 4rem 3rem;
+    padding: 5.5rem 3rem;
+  }
+
+  .brand {
+    margin-top: -0.75rem;
+  }
+
+  .description {
+    --margin: 2.5rem;
   }
 
   .price {
     flex-wrap: wrap;
+    --margin: 1.5rem;
 
     > :first-child {
       width: 100%;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
   }
 }
