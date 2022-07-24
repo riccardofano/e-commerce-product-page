@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
-import ShopContext from "./context/shopContext";
+import ShopContext from "../context/shopContext";
 import Gallery from "./Gallery";
-import { useViewport } from "./hooks/useViewport";
+import { useViewport } from "../hooks/useViewport";
 
 import { ReactComponent as IconCart } from "/images/icon-cart.svg";
 import { ReactComponent as IconMinus } from "/images/icon-minus.svg";

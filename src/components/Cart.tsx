@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import ShopContext from "./context/shopContext";
+import ShopContext from "../context/shopContext";
 
-import { ReactComponent as IconDelete } from "../images/icon-delete.svg";
-import { ReactComponent as IconCart } from "../images/icon-cart.svg";
+import { ReactComponent as IconDelete } from "/images/icon-delete.svg";
+import { ReactComponent as IconCart } from "/images/icon-cart.svg";
 
 function Cart() {
   const { cart, removeFromCart } = useContext(ShopContext);
@@ -18,7 +18,7 @@ function Cart() {
     <ul className="cart-list flex-grow">
       {cart.map((product) => (
         <li key={product.id} className="flex flex-gap flex-v-center">
-          <img src={`images/${product.images[0].thumbnail}`} alt="" />
+          <img src={`/images/${product.images[0].thumbnail}`} alt="" />
           <div className="cart-info">
             <p className="cart-product-name">{product.name}</p>
             <p>

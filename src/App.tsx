@@ -1,8 +1,8 @@
 import { useReducer } from "react";
 import { shopReducer } from "./context/reducers";
 import ShopContext, { mockProducts, Product } from "./context/shopContext";
-import Header from "./Header";
-import Main from "./Main";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
 function App() {
   const products = mockProducts;

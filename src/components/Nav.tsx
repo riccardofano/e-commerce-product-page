@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useViewport } from "./hooks/useViewport";
+import { useViewport } from "../hooks/useViewport";
 
 function Nav() {
   const { isDesktop } = useViewport();
