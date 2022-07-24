@@ -42,11 +42,11 @@ function Main() {
         </div>
         <div className="grid uneven-columns">
           <div className="flex flex-v-center flex-sb bg-neutral-300">
-            <button className="button" onClick={descreaseAmount}>
+            <button className="button | flex flex-v-center" onClick={descreaseAmount}>
               <IconMinus />
             </button>
             <p className="text-neutral-800 fw-bold">{amount}</p>
-            <button className="button" onClick={increaseAmount}>
+            <button className="button | flex flex-v-center" onClick={increaseAmount}>
               <IconPlus />
             </button>
           </div>

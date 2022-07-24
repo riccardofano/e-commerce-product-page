@@ -18,9 +18,9 @@ function Gallery({ images }: GalleryProps) {
   const Thumbnails = (
     <div className="thumbnails | flex">
       {images.map((p, i) => (
-        <div key={i} data-active={imageIndex === i} onClick={() => setImageIndex(i)}>
+        <button key={i} className="button" data-active={imageIndex === i} tabIndex={0} onClick={() => setImageIndex(i)}>
           <img src={`/images/${p.thumbnail}`} alt={p.text} />
-        </div>
+        </button>
       ))}
     </div>
   );
