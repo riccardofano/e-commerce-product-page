@@ -37,13 +37,15 @@ function Gallery({ images }: GalleryProps) {
   return (
     <section className="flow">
       <div className="full-size">
-        <img src={`/images/${currentImage.fullSize}`} alt={currentImage.text} />
+        <button className="open-dialog">
+          <img src={`/images/${currentImage.fullSize}`} alt={currentImage.text} />
+        </button>
         {!isDesktop && (
           <div>
-            <button onClick={previousImage} data-type="previous">
+            <button className="img-navigation" data-type="previous" onClick={previousImage}>
               <IconPrevious />
             </button>
-            <button onClick={nextImage} data-type="next">
+            <button className="img-navigation" data-type="next" onClick={nextImage}>
               <IconNext />
             </button>
           </div>

@@ -49,6 +49,13 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
+/* Remove button default background and border */
+button {
+  background-color: inherit;
+  border: none;
+  padding: 0;
+}
+
 /* Make images easier to work with */
 img,
 picture {
