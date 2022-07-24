@@ -43,21 +43,23 @@ function Main() {
         <div className="grid uneven-columns">
           <div className="flex flex-v-center flex-sb bg-neutral-300 radius-lg">
             <button className="button | flex flex-v-center" onClick={descreaseAmount}>
+              <span className="visually-hidden">Decrease amount</span>
               <IconMinus />
             </button>
             <p className="text-neutral-800 fw-bold">{amount}</p>
             <button className="button | flex flex-v-center" onClick={increaseAmount}>
+              <span className="visually-hidden">Increase amount</span>
               <IconPlus />
             </button>
           </div>
           <button
-            className="button | flow-h | flex flex-center"
+            className="button | flow-h | flex flex-center flex-gap"
             data-type="primary"
             data-shadow="true"
             onClick={addProductToCart}
           >
             <IconCart />
-            <p className="fw-bold">Add to cart</p>
+            Add to cart
           </button>
         </div>
       </article>

@@ -40,6 +40,7 @@ function Cart() {
   return (
     <div className="cart">
       <button className="cart-button | button | flex flex-v-center" onClick={toggleOpen}>
+        <span className="visually-hidden">Open Cart</span>
         {!isEmpty && <span className="cart-pill">{itemsInCart}</span>}
         <IconCart className={`${open ? "active" : ""}`} />
       </button>

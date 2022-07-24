@@ -41,6 +41,10 @@ function Dialog({ attr, images, index }: DialogProps) {
           <IconClose />
         </button>
 
+        <h1 {...attr.title} className="visually-hidden">
+          Lightbox
+        </h1>
+
         <div className="dialog-full-size">
           <img src={`./images/${currentImage.fullSize}`} alt={currentImage.text} />
           <button className="img-navigation" data-type="previous" onClick={previousImage}>

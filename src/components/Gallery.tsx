@@ -45,7 +45,7 @@ function Gallery({ images }: GalleryProps) {
   };
 
   return (
-    <section className="flow">
+    <div className="flow">
       <div className="full-size">
         <button className="open-dialog" onClick={() => isDesktop && instance?.show()}>
           <img src={`/images/${currentImage.fullSize}`} alt={currentImage.text} />
@@ -64,7 +64,7 @@ function Gallery({ images }: GalleryProps) {
       {isDesktop && Thumbnails}
 
       <Dialog attr={attr} images={images} index={imageIndex} />
-    </section>
+    </div>
   );
 }
 
